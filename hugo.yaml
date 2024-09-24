@@ -1,6 +1,6 @@
 baseURL: https://lukedoesstuff.com/
 languageCode: en-us
-title: Luke Does Stuff
+title: Luke Does Things
 theme: ["PaperMod"]
 
 params:
