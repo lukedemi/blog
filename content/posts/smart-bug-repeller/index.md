@@ -5,6 +5,11 @@ draft: false
 tags: ["DIY", "Smart Home", "Tech"]
 ---
 
+> 🎥 **Video Version Available!**
+> 
+> You can watch the video version of this project on [YouTube](https://www.youtube.com/watch?v=a0psQ8b3rc0) as given at the [Tech Lancaster Meetup](https://techlancaster.com/) in July
+> 
+
 {{< customfigure src="images/ducttape.png" alt="Duct Tape" max-width="400px" caption="Sometimes, all you need is duct tape." >}}
 
 As a software guy, hardware hacking has long appealed to me. Until recently I just
