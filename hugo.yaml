@@ -4,7 +4,10 @@ title: Luke Does Things
 theme: ["PaperMod"]
 
 params:
+  profileMode:
+    enabled: true
+    title: A generic hugo website for me to post stuff
+    subtitle: ... where "me" is Luke Demi. I'd love to hear from you - L D Demi @ gmail.com
+    imageUrl: "https://avatars.githubusercontent.com/u/5074303?s=400&u=8c43e9e64f46c217a753cd85bc9e9aa84602e848&v=4"
+    imageTitle: "<title of image as alt>"
   googleAnalytics: "G-3LSVVSVLZH"
-  homeInfoParams:
-    Title: A generic hugo website for me to post stuff
-    Content: ... where "me" is Luke Demi. I'd love to hear from you - L D Demi @ gmail.com

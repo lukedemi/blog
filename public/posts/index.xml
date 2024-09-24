@@ -10,6 +10,25 @@
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Summer I MacGyvered a Smart Bug Repeller and Saved $700</title>
+      <link>http://localhost:1313/posts/smart-bug-repeller-copy/</link>
+      <pubDate>Tue, 24 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/smart-bug-repeller-copy/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;🎥 &lt;strong&gt;Video Version Available!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;You can watch the video version of this project on &lt;a href=&#34;https://www.youtube.com/watch?v=a0psQ8b3rc0&#34;&gt;YouTube&lt;/a&gt; as given at the &lt;a href=&#34;https://techlancaster.com/&#34;&gt;Tech Lancaster Meetup&lt;/a&gt; in July&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure style=&#34;margin: 1em 0; text-align: center;&#34;&gt;
+    &lt;img src=&#34;images/ducttape.png&#34; alt=&#34;Duct Tape&#34; style=&#34;max-width: 400px; width: 100%; margin: auto;&#34;&gt;
+    
+    &lt;figcaption style=&#34;text-align: center; font-size: small; color: #555;&#34;&gt;Sometimes, all you need is duct tape.&lt;/figcaption&gt;
+    
+  &lt;/figure&gt;
+&lt;p&gt;As a software guy, hardware hacking has long appealed to me. Until recently I just
+never took the plunge past goofing off with an Arduino starter kit.
+I like to think it was just a lack of a good use case, maybe it was fear. Regardless, no hardware hacking for me.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Summer I MacGyvered a Smart Bug Repeller and Saved $700</title>
       <link>http://localhost:1313/posts/smart-bug-repeller/</link>
       <pubDate>Tue, 24 Sep 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/smart-bug-repeller/</guid>
