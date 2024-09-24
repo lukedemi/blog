@@ -4,6 +4,7 @@ title: Luke Does Things
 theme: ["PaperMod"]
 
 params:
+  googleAnalytics: "G-3LSVVSVLZH"
   homeInfoParams:
     Title: A generic hugo website for me to post stuff
     Content: ... where "me" is Luke Demi. I'd love to hear from you - L D Demi @ gmail.com
