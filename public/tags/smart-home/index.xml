@@ -10,9 +10,9 @@
     <atom:link href="http://localhost:1313/tags/smart-home/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Summer I MacGyvered a Smart Bug Repeller and Saved $700</title>
-      <link>http://localhost:1313/posts/smart-bug-repeller-copy/</link>
+      <link>http://localhost:1313/posts/smart-bug-repeller/</link>
       <pubDate>Tue, 24 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/smart-bug-repeller-copy/</guid>
+      <guid>http://localhost:1313/posts/smart-bug-repeller/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;🎥 &lt;strong&gt;Video Version Available!&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;You can watch the video version of this project on &lt;a href=&#34;https://www.youtube.com/watch?v=a0psQ8b3rc0&#34;&gt;YouTube&lt;/a&gt; as given at the &lt;a href=&#34;https://techlancaster.com/&#34;&gt;Tech Lancaster Meetup&lt;/a&gt; in July&lt;/p&gt;
@@ -28,10 +28,10 @@ never took the plunge past goofing off with an Arduino starter kit.
 I like to think it was just a lack of a good use case, maybe it was fear. Regardless, no hardware hacking for me.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>The Summer I MacGyvered a Smart Bug Repeller and Saved $700</title>
-      <link>http://localhost:1313/posts/smart-bug-repeller/</link>
+      <title>Turning a $50 Mosquito Repeller into a Smart Home Device with ESP32 and Home Assistant</title>
+      <link>http://localhost:1313/posts/home-assistant-repeller/</link>
       <pubDate>Tue, 24 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/smart-bug-repeller/</guid>
+      <guid>http://localhost:1313/posts/home-assistant-repeller/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;🎥 &lt;strong&gt;Video Version Available!&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;You can watch the video version of this project on &lt;a href=&#34;https://www.youtube.com/watch?v=a0psQ8b3rc0&#34;&gt;YouTube&lt;/a&gt; as given at the &lt;a href=&#34;https://techlancaster.com/&#34;&gt;Tech Lancaster Meetup&lt;/a&gt; in July&lt;/p&gt;
