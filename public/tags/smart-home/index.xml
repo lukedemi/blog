@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Smart Home on Luke Does Stuff</title>
+    <link>http://localhost:1313/tags/smart-home/</link>
+    <description>Recent content in Smart Home on Luke Does Stuff</description>
+    <generator>Hugo -- 0.134.3</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 24 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/smart-home/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Summer I MacGyvered a Smart Bug Repeller and Saved $700</title>
+      <link>http://localhost:1313/posts/smart-bug-repeller/</link>
+      <pubDate>Tue, 24 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/smart-bug-repeller/</guid>
+      <description>&lt;figure style=&#34;margin: 1em 0; text-align: center;&#34;&gt;
+    &lt;img src=&#34;images/ducttape.png&#34; alt=&#34;Duct Tape&#34; style=&#34;max-width: 600px; width: 100%; margin: auto;&#34;&gt;
+    
+    &lt;figcaption style=&#34;text-align: center; font-size: small; color: #555;&#34;&gt;Sometimes, all you need is duct tape.&lt;/figcaption&gt;
+    
+  &lt;/figure&gt;
+&lt;p&gt;As a software guy, hardware hacking has long appealed to me. Until recently I just
+never took the plunge past goofing off with an Arduino starter kit.
+I like to think it was just a lack of a good use case, maybe it was fear. Regardless, no hardware hacking for me.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>The Summer I MacGyvered a Smart Bug Repeller and Saved $700 | Luke Does Stuff</title>
+<meta name="keywords" content="DIY, Smart Home, Tech">
+<meta name="description" content="
+    
+    
+    Sometimes, all you need is duct tape.
+    
+  
+As a software guy, hardware hacking has long appealed to me. Until recently I just
+never took the plunge past goofing off with an Arduino starter kit.
+I like to think it was just a lack of a good use case, maybe it was fear. Regardless, no hardware hacking for me.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/smart-bug-repeller/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/smart-bug-repeller/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Luke Does Stuff (Alt + H)">Luke Does Stuff</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      The Summer I MacGyvered a Smart Bug Repeller and Saved $700
+    </h1>
+    <div class="post-meta"><span title='2024-09-24 00:00:00 +0000 UTC'>September 24, 2024</span>
+
+</div>
+  </header> 
+  <div class="post-content"><figure style="margin: 1em 0; text-align: center;">
+    <img src="images/ducttape.png" alt="Duct Tape" style="max-width: 400px; width: 100%; margin: auto;">
+    
+    <figcaption style="text-align: center; font-size: small; color: #555;">Sometimes, all you need is duct tape.</figcaption>
+    
+  </figure>
+<p>As a software guy, hardware hacking has long appealed to me. Until recently I just
+never took the plunge past goofing off with an Arduino starter kit.
+I like to think it was just a lack of a good use case, maybe it was fear. Regardless, no hardware hacking for me.</p>
+<p>My lack of use case changed last spring when our family moved to a new house.
+My neighbor must have had a marsh or something because we were getting absolutely destroyed by mosquitoes every time we stepped outside.
+One day, I decided enough was enough and attempted to throw money at the problem. So, I turned to Wirecutter to find a solution.</p>
+<h2 id="the-smart-800-out-of-stock-solution">The Smart $800 Out-of-stock Solution<a hidden class="anchor" aria-hidden="true" href="#the-smart-800-out-of-stock-solution">#</a></h2>
+<p>I stumbled upon the holy grail of mosquito repellents— a smart, Wi-Fi-enabled, app-controlled mosquito repelling system:</p>
+<figure style="margin: 1em 0; text-align: center;">
+    <img src="images/800.png" alt="Fancy $800 mosquito repeller" style="max-width: 600px; width: 100%; margin: auto;">
+    
+    <figcaption style="text-align: center; font-size: small; color: #555;">The $800 mosquito repeller that was out of stock.</figcaption>
+    
+  </figure>
+<p>It&rsquo;s a sophisticated product. You set up a series of repellers in your
+backyard and control them with an app. The app allows you to turn the
+repellers on and off, put them on a schedule or timer, and even check
+the level of repellent. Unfortunately, this all came at a price: $800.</p>
+<p>So I decided to get the mid, not smart $50 version:</p>
+<figure style="margin: 1em 0; text-align: center;">
+    <img src="images/50_mid_version.png" alt="Not as good version" style="max-width: 600px; width: 100%; margin: auto;">
+    
+    <figcaption style="text-align: center; font-size: small; color: #555;">The cheaper, not-so-smart $50 version.</figcaption>
+    
+  </figure>
+<p>After a year of hassles, and some mosquito bites, I realized that this
+cheaper version was like owning a pet.</p>
+<ul>
+<li>🤬 I had to remember to turn it on and off.</li>
+<li>😤 I had to remember to charge it.</li>
+<li>😡 No notifications when fluid runs out.</li>
+<li>😤 Impossible to automate.</li>
+</ul>
+<p>By the next summer, I was ready to invest in the $800 system. I needed
+the smart version with the colorful lights and WiFi connection. So I
+went to the website to buy it: But by now it was out of stock! On top of that,
+there were a bunch of negative reviews about how janky the app was, how the
+repellers didn&rsquo;t connect to 5G Wi-Fi, and so on.</p>
+<h2 id="my-diy-smart-40-solution">My DIY Smart 40$ Solution<a hidden class="anchor" aria-hidden="true" href="#my-diy-smart-40-solution">#</a></h2>
+<p>I couldn&rsquo;t buy the smart mosquito repellent, so I decided to build one myself. How hard could it be? (Spoiler alert: harder than I thought, but surprisingly simple)</p>
+<p>I wanted my version to be better:</p>
+<ul>
+<li>✅ Cheap (sub $40 per repeller).</li>
+<li>✅ Automatable with the <a href="https://www.home-assistant.io/">Home Assistant</a> home automation platform.</li>
+<li>✅ HomeKit support.</li>
+<li>✅ In stock!</li>
+</ul>
+<p>After some tinkering, amateur soldering, lots of ChatGPT conversations, and a fair bit of cursing, I turned the mid version devices into smart WiFi-connected ones using an ESP32 micro-controller:</p>
+<figure style="margin: 1em 0; text-align: center;">
+    <img src="images/results.png" alt="DIY Smart Bug Repeller Results" style="max-width: 600px; width: 100%; margin: auto;">
+    
+    <figcaption style="text-align: center; font-size: small; color: #555;">My DIY smart mosquito repellent system.</figcaption>
+    
+  </figure>
+<p>I now have a network of smart mosquito repellents that I can:</p>
+<ul>
+<li>✅ Control from my phone via WiFi.</li>
+<li>✅ Set on schedules.</li>
+<li>✅ Receive status notifications for each repellent.</li>
+<li>✅ Automate based on when I&rsquo;m actually outside.</li>
+</ul>
+<h2 id="dumb-to-smart-device-conversion-plan-the-esp32">Dumb to Smart Device Conversion Plan: The ESP32<a hidden class="anchor" aria-hidden="true" href="#dumb-to-smart-device-conversion-plan-the-esp32">#</a></h2>
+<p>The brain of my smart mosquito repellent system is the ESP32 micro-controller, the Swiss Army knife of IoT projects:</p>
+<figure style="margin: 1em 0; text-align: center;">
+    <img src="images/ESP32.jpg" alt="ESP32 Microcontroller" style="max-width: 300px; width: 100%; margin: auto;">
+    
+    <figcaption style="text-align: center; font-size: small; color: #555;">The ESP32 microcontroller, the Swiss Army knife of IoT projects.</figcaption>
+    
+  </figure>
+<p>This little chip has everything you need for a IoT project:</p>
+<ul>
+<li>✅ Wi-Fi + Bluetooth.</li>
+<li>✅ 4MB Flash memory.</li>
+<li>✅ 520KB of RAM.</li>
+<li>✅ 240 MHz (dual core) CPU.</li>
+<li>✅ Can be connected to Home Assistant via <a href="https://esphome.io/guides/getting_started_hassio.html">ESPHome</a>.</li>
+<li>✅ Cheap.</li>
+<li>✅ Perfect for turning dumb devices into smart ones.</li>
+<li>✅ Can run C code.</li>
+</ul>
+<p>Unlike a Raspberry Pi, the ESP32 has a low power consumption and I could power it using the Thermacell&rsquo;s battery.</p>
+<p>I found this cool small ESP32 version for $5 and decided to go with it. Here is the full diagram of this ESP32:</p>
+<figure style="margin: 1em 0; text-align: center;">
+    <img src="images/Tiny_ESP32_Diagram.png" alt="Tiny ESP32 Diagram" style="max-width: 600px; width: 100%; margin: auto;">
+    
+    <figcaption style="text-align: center; font-size: small; color: #555;">Diagram of the Tiny ESP32 version used.</figcaption>
+    
+  </figure>
+<p>Here, we have the following:</p>
+<ul>
+<li><strong>GPIO Pins (Green):</strong> General-purpose input/output (GPIO) pins that can be programmed. For example, you could use a GPIO pin to read the state of a button (input) or to turn an LED on and off (output).</li>
+<li><strong>Analog Input Pins (Light Red):</strong> Used to read analog signals.</li>
+<li><strong>Power Pins:</strong>
+<ul>
+<li><strong>5V:</strong> 5V power output.</li>
+<li><strong>3V3:</strong> 3.3V power output.</li>
+<li><strong>GND:</strong> Ground.</li>
+</ul>
+</li>
+<li><strong>Battery Connector (BAT):</strong> Pin for connecting a battery. The cool thing about this connector is that if you plug the ESP32 and connect it to a battery, the ESP32 will actually charge the battery.</li>
+<li><strong>Thermal Pad:</strong> Helps with heat dissipation for the microcontroller.</li>
+</ul>
+<p>The other pins I haven’t mentioned are for other purposes beyond the scope of this post.</p>
+<h3 id="the-plan">The Plan<a hidden class="anchor" aria-hidden="true" href="#the-plan">#</a></h3>
+<p>Now the plan was simple:</p>
+<ul>
+<li>🔧 Use the ESP32 to control the dumb Thermacell device.</li>
+<li>🔧 Connect it to my home Wi-Fi.</li>
+<li>🔧 Control it through my phone via Home Assistant.</li>
+<li>🔧 Automate everything.</li>
+</ul>
+<h2 id="reverse-engineering-the-mid-version-thermacell">Reverse Engineering the Mid Version Thermacell<a hidden class="anchor" aria-hidden="true" href="#reverse-engineering-the-mid-version-thermacell">#</a></h2>
+<p>The Thermacell is a little device that uses heat to vaporize mosquito repellent. Simple, effective, but about as smart as a brick:</p>
+<figure style="margin: 1em 0; text-align: center;">
+    <img src="images/mid_version.png" alt="Mid Version Thermacell" style="max-width: 600px; width: 100%; margin: auto;">
+    
+    <figcaption style="text-align: center; font-size: small; color: #555;">The mid version Thermacell, simple but dumb.</figcaption>
+    
+  </figure>
+<p>You manually turn it on, and it does its thing. If you forget to turn it off you waste a cartridge of repellent (this happened every single time).</p>
+<p>I had a few of these, so I decided to crack one open (literally):</p>
+<div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+    
+    <div style="flex: 1; margin-right: 1em;">
+      <img src="images/crack.png" alt="images/crack.png" style="width: 100%; height: auto;">
+    </div>
+    
+    
+    <div style="flex: 1;">
+      <img src="images/drill.png" alt="images/drill.png" style="width: 100%; height: auto;">
+    </div>
+    
+  </div>
+  
+<p><strong>Note:</strong> I later realized it actually had triangle screws hidden underneath small pads, but it was too late for this one.</p>
+<p>Inside, I found a simple circuit board, a battery, and the heating element. The circuit was straightforward: power goes in, heat comes out:</p>
+<figure style="margin: 1em 0; text-align: center;">
+    <img src="images/repellent_insides.png" alt="Repellent Insides" style="max-width: 600px; width: 100%; margin: auto;">
+    
+    <figcaption style="text-align: center; font-size: small; color: #555;">Inside the Thermacell repellent device.</figcaption>
+    
+  </figure>
+<p>Now I need:</p>
+<ul>
+<li>🔧 A way to programmatically switch the device on and off.</li>
+<li>🔧 Read whether it is on or off.</li>
+<li>🔧 Provide power to the ESP32.</li>
+</ul>
+<p>Powering the ESP32 was simpler than I thought, as the 3.8V battery on the device can do the job (or, at least ChatGPT told me it can!).</p>
+<p>Analyzing the board, I identified the key components:</p>
+<figure style="margin: 1em 0; text-align: center;">
+    <img src="images/Thermacell_Components_1.png" alt="Thermacell Components" style="max-width: 600px; width: 100%; margin: auto;">
+    
+    <figcaption style="text-align: center; font-size: small; color: #555;">Key components inside the Thermacell device.</figcaption>
+    
+  </figure>
+<p>Here we have:</p>
+<ul>
+<li><strong>Resistors</strong>: These regulate the flow of electrical current within the device.</li>
+<li><strong>Capacitors</strong>: These store and release energy, ensuring a stable power supply.</li>
+<li><strong>Diodes</strong>: These allow the flow of electricity in a single direction, preventing damage to the circuit.</li>
+<li><strong>Transistors</strong>: If it receives a small input signal on one terminal, it controls the connection between the other two terminals.</li>
+<li><strong>Integrated circuits</strong>: These are the &ldquo;black boxes&rdquo; that handle more complex functions, such as charging and temperature regulation.</li>
+<li><strong>Switch</strong>: A button to turn the device on and off.</li>
+<li><strong>Power Connector</strong>: Provides power to the board and heating element.</li>
+<li><strong>Test Pads</strong>: Probably used for testing and debugging purposes.</li>
+</ul>
+<p>With a better understanding of the device&rsquo;s internals, I set out to find a way to control the heating element using the ESP32 microcontroller. Now I need to find a way to turn the device on, and a way to know if it’s on.</p>
+<p>For turning it on, ChatGPT suggested I bridge the switch:</p>
+<figure style="margin: 1em 0; text-align: center;">
+    <img src="images/Turn_it_on.png" alt="Bridge the Switch" style="max-width: 600px; width: 100%; margin: auto;">
+    
+    <figcaption style="text-align: center; font-size: small; color: #555;">Bridging the switch to turn the device on.</figcaption>
+    
+  </figure>
+<p>It worked! Easy.</p>
+<p>Now, I need to determine whether it was on or not. This turned out to be way harder than I thought.</p>
+<p>I bought a multi-meter with the goal of checking the difference between the device&rsquo;s on and off states. I also entertained the idea of buying an oscilloscope, but quickly forgot about it once I found out even the cheap ones cost $400+ (I occasionally remind myself that this project is to &ldquo;save&rdquo; money).</p>
+<p>While searching the web, I stumbled upon a sweet alternative to the physical oscilloscope: the open-source <a href="https://github.com/BojanJurca/Esp32_oscilloscope">ESP32 Oscilloscope</a> project.</p>
+<p>So I analyzed the signals going from pad to pad. The off state is marked by red and the on state is marked by green.</p>
+<figure style="margin: 1em 0; text-align: center;">
+    <img src="images/Oscilloscope2.png" alt="Oscilloscope Readings" style="max-width: 600px; width: 100%; margin: auto;">
+    
+    <figcaption style="text-align: center; font-size: small; color: #555;">Oscilloscope readings showing on and off states.</figcaption>
+    
+  </figure>
+<p>Here:</p>
+<ul>
+<li>When it’s high at 4 Volts: it’s off.</li>
+<li>When it’s low at near 0 Volts: it’s on.</li>
+</ul>
+<p>Now, this difference in Volts is not always there, some pads stop giving this signal when the battery is fully charged. So I tested all of them until I found one that worked consistently regardless of the battery’s state.</p>
+<p>At this point, I can:</p>
+<ul>
+<li>See if the device is on or not.</li>
+<li>Turn it on by bridging two pads.</li>
+</ul>
+<p>I now needed to solder a few wires to the board so that the ESP32 could control the heating element and detect whether the device was on or off.</p>
+<h2 id="hacking-hardware-and-soldering-adventures-and-misadventures">Hacking Hardware and Soldering Adventures (and Misadventures)<a hidden class="anchor" aria-hidden="true" href="#hacking-hardware-and-soldering-adventures-and-misadventures">#</a></h2>
+<p>So, let’s start with powering things.</p>
+<p>I connected the Thermacell’s battery connector with the ESP32’s battery interface:</p>
+<figure style="margin: 1em 0; text-align: center;">
+    <img src="images/esp32_battery_connection.png" alt="ESP32 Battery Connection" style="max-width: 600px; width: 100%; margin: auto;">
+    
+    <figcaption style="text-align: center; font-size: small; color: #555;">Connecting the ESP32 to the Thermacell&#39;s battery.</figcaption>
+    
+  </figure>
+<p>Next, I connected the Thermacell with an ESP32 analog pin to read the variation in voltage:</p>
+<figure style="margin: 1em 0; text-align: center;">
+    <img src="images/esp32_read_analog.png" alt="ESP32 Reading Analog Signal" style="max-width: 600px; width: 100%; margin: auto;">
+    
+    <figcaption style="text-align: center; font-size: small; color: #555;">Reading the analog signal with the ESP32.</figcaption>
+    
+  </figure>
+<p>Reading the values here is how I determined whether the Thermacell was on or off, as I explained in the previous section.</p>
+<p>Next, I needed to use a transistor to control the Thermacell’s switch:</p>
+<figure style="margin: 1em 0; text-align: center;">
+    <img src="images/transistor_switch.png" alt="Transistor Switch" style="max-width: 600px; width: 100%; margin: auto;">
+    
+    <figcaption style="text-align: center; font-size: small; color: #555;">Using a transistor to control the Thermacell&#39;s switch.</figcaption>
+    
+  </figure>
+<p>The transistor here works like a switch: when the middle pin receives a signal (a 3V high from the ESP32), it connects between the other two pins, and turns on the Thermacell.</p>
+<p>Here is the final circuit:</p>
+<figure style="margin: 1em 0; text-align: center;">
+    <img src="images/circuit_diagram.png" alt="Circuit Diagram" style="max-width: 600px; width: 100%; margin: auto;">
+    
+    <figcaption style="text-align: center; font-size: small; color: #555;">Final circuit diagram for the smart Thermacell device.</figcaption>
+    
+  </figure>
+<p>I soldered everything with the skills of a true software guy:</p>
+<figure style="margin: 1em 0; text-align: center;">
+    <img src="images/soldering.png" alt="Soldering the Circuit" style="max-width: 600px; width: 100%; margin: auto;">
+    
+    <figcaption style="text-align: center; font-size: small; color: #555;">Soldering everything together with my beginner skills.</figcaption>
+    
+  </figure>
+<p>With the hardware part out of the way, I can now program the ESP32 and connect it to Home Assistant through MQTT.</p>
+<h2 id="using-mqtt-and-esphome-for-integration-with-home-assistant">Using MQTT and ESPHome for Integration with Home Assistant<a hidden class="anchor" aria-hidden="true" href="#using-mqtt-and-esphome-for-integration-with-home-assistant">#</a></h2>
+<p>MQTT is a lightweight messaging protocol designed for IoT devices, allowing them to send and receive data efficiently.</p>
+<p><a href="https://mosquitto.org/">Mosquitto</a>, pun obviously not intended, is an open-source MQTT broker.</p>
+<p>The great thing about MQTT is that once the devices are connected to my MQTT server, they automatically connect with Home Assistant, instantly integrating themselves into my smart home setup without any manual configuration.</p>
+<h3 id="my-initial-experiment-with-low-level-c-code">My Initial Experiment with Low-level C Code<a hidden class="anchor" aria-hidden="true" href="#my-initial-experiment-with-low-level-c-code">#</a></h3>
+<p>At first, I wrote <a href="https://gist.github.com/lukedemi/344964aed524f54e9a709061ad1139a6">210 lines of low-level C code</a> for the ESP32 to control the Thermacell, communicate its status, and integrate it with Home Assistant.</p>
+<p>The code has the following parts:</p>
+<ul>
+<li><strong>Setup Function:</strong>
+<ul>
+<li>Connects the ESP32 to the Wi-Fi network and retrieves the device&rsquo;s MAC address to create a unique ID.</li>
+<li>Sets up MQTT topics for commands, state updates, and discovery.</li>
+<li>Connects to the MQTT server and sets up a callback function to handle incoming messages.</li>
+</ul>
+</li>
+<li><strong>Loop Function:</strong>
+<ul>
+<li>Continuous MQTT connection.</li>
+<li>Sends periodic status updates (every 10 seconds) to the MQTT server, reporting whether the Thermacell is on or off.</li>
+<li>Sends a discovery message for Home Assistant integration.</li>
+</ul>
+</li>
+<li><strong>Callback Function:</strong>
+<ul>
+<li>This function is triggered when an MQTT message is received. It listens to the <code>commandTopic</code>, checking whether to turn the Thermacell on or off.</li>
+<li>If the message is &ldquo;ON&rdquo;, it sets the <code>controlPin</code> high for 500ms to activate the device and then publishes the state as &ldquo;ON&rdquo;. If the message is &ldquo;OFF&rdquo;, it holds the pin high for 4 seconds, which turns it off.</li>
+</ul>
+</li>
+<li><strong>Discovery and Status Updates:</strong>
+<ul>
+<li>The <code>publishDiscoveryMessage()</code> function sends a JSON payload to Home Assistant, allowing it to automatically discover and integrate the device.</li>
+<li>The <code>sendStatusUpdate()</code> function checks the analog value from the <code>statusPin</code> to determine whether the Thermacell is on or off and reports this via MQTT.</li>
+</ul>
+</li>
+</ul>
+<p>The code was messy and way too complicated.</p>
+<p>However…</p>
+<figure style="margin: 1em 0; text-align: center;">
+    <img src="images/it_works.png" alt="It Works!" style="max-width: 600px; width: 100%; margin: auto;">
+    
+    <figcaption style="text-align: center; font-size: small; color: #555;">It actually worked!</figcaption>
+    
+  </figure>
+<p>It actually worked!</p>
+<p>After everything was soldered together, I jammed the components inside the Thermacell case:</p>
+<figure style="margin: 1em 0; text-align: center;">
+    <img src="images/final_thermacell_jammed.png" alt="Final Thermacell Setup" style="max-width: 600px; width: 100%; margin: auto;">
+    
+    <figcaption style="text-align: center; font-size: small; color: #555;">Final setup with the ESP32 and components jammed inside the case.</figcaption>
+    
+  </figure>
+<p>The highlighted part is an antenna for the ESP32 to improve the WiFi connection.</p>
+<p>But still.. I felt like something was missing. I was not satisfied with the code and kept looking for ways to make better.</p>
+<h3 id="oh-there-is-a-better-way-actually-esphome">Oh, there is a better way, actually: ESPHome<a hidden class="anchor" aria-hidden="true" href="#oh-there-is-a-better-way-actually-esphome">#</a></h3>
+<p>I quickly realized there was an easier, more elegant solution—<a href="https://esphome.io/">ESPHome</a>, which is an open-source platform that makes programming the ESP32 super simple. Instead of writing code in C or dealing with complex libraries, ESPHome allows you to configure your device using YAML, a human-readable format.</p>
+<p>The beauty of ESPHome is its tight integration with Home Assistant. You just define how you want the device to behave in a YAML configuration file, and ESPHome takes care of the rest, including managing connections and automations.</p>
+<p>So I decided to ditch the convoluted C code and start from scratch.</p>
+<p>First, I set up the basic configuration and connections in a file called <code>common.yaml</code>:</p>
+<figure style="margin: 1em 0; text-align: center;">
+    <img src="images/init_config.png" alt="Initial Config" style="max-width: 600px; width: 100%; margin: auto;">
+    
+    <figcaption style="text-align: center; font-size: small; color: #555;">Initial configuration for the ESPHome setup.</figcaption>
+    
+  </figure>
+<p>Next, I wrote the code to control the Thermacell in a file called <a href="https://gist.github.com/lukedemi/a7a13e74e1a7bfaa3866b483bea45ae1#file-thermacell-yaml"><strong><code>thermacell.yaml</code></strong></a>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">output</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">platform</span>: <span style="color:#ae81ff">gpio</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">pin</span>: <span style="color:#ae81ff">GPIO2</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">id</span>: <span style="color:#ae81ff">thermacell_output</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">switch</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">platform</span>: <span style="color:#ae81ff">template</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;${friendly_name} Switch&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">id</span>: <span style="color:#ae81ff">thermacell_switch</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restore_mode</span>: <span style="color:#ae81ff">DISABLED</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">turn_on_action</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">lambda</span>: |-<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          ESP_LOGD(&#34;main&#34;, &#34;Turning ON Thermacell&#34;);
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          id(thermacell_output).turn_on();
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          delay(1000);
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          id(thermacell_output).turn_off();
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          ESP_LOGD(&#34;main&#34;, &#34;Thermacell ON sequence complete&#34;);
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          id(thermacell_switch).publish_state(true);</span>          
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">turn_off_action</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">lambda</span>: |-<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          ESP_LOGD(&#34;main&#34;, &#34;Turning OFF Thermacell&#34;);
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          id(thermacell_output).turn_on();
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          delay(4000);
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          id(thermacell_output).turn_off();
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          ESP_LOGD(&#34;main&#34;, &#34;Thermacell OFF sequence complete&#34;);
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          id(thermacell_switch).publish_state(false);</span>          
+</span></span><span style="display:flex;"><span><span style="color:#f92672">sensor</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">platform</span>: <span style="color:#ae81ff">adc</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">pin</span>: <span style="color:#ae81ff">GPIO3</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;Thermacell State&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">id</span>: <span style="color:#ae81ff">thermacell_state</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">update_interval</span>: <span style="color:#ae81ff">500ms</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">filters</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">sliding_window_moving_average</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">window_size</span>: <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">send_every</span>: <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">lambda</span>: |-<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          if (x &gt; 0.3) {  // Assuming HIGH is represented by a value &gt; 0.5
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            id(thermacell_switch).publish_state(true);
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            ESP_LOGD(&#34;main&#34;, &#34;Thermacell state: ON, value: %.2f&#34;, x);
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          } else {
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            id(thermacell_switch).publish_state(false);
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            ESP_LOGD(&#34;main&#34;, &#34;Thermacell state: OFF, value: %.2f&#34;, x);
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          }
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          return x;</span>          
+</span></span></code></pre></div><p>Here is a brief explanation of what this code does:</p>
+<ul>
+<li><strong>Output Section:</strong> Configures a GPIO pin to control the Thermacell device.</li>
+<li><strong>Switch Section:</strong>
+<ul>
+<li>A template switch is defined to control the Thermacell. This switch doesn’t directly toggle the pin but instead runs custom actions (using lambda functions) when turned on or off.</li>
+<li><strong>Turn On Action:</strong> When the switch is turned on, the output pin (<code>thermacell_output</code>) is turned on, waits for 1 second, and then turns off. It logs the event and updates the switch state to &ldquo;ON.&rdquo;</li>
+<li><strong>Turn Off Action:</strong> Similar to turning on, but with a 4-second delay to ensure the device turns off properly. It logs the event and updates the switch state to &ldquo;OFF.&rdquo;</li>
+</ul>
+</li>
+<li><strong>Sensor Section:</strong>
+<ul>
+<li>This configures an analog-to-digital converter (ADC) sensor on <code>GPIO3</code> to monitor the Thermacell’s state. It uses a sliding window average to smooth out noise from the sensor readings and updates every 500ms.</li>
+<li>The lambda function checks the sensor value. If it’s above 0.3, it considers the device &ldquo;ON&rdquo; and publishes the state accordingly, logging the event with the current value. Otherwise, it considers the device &ldquo;OFF.&rdquo;</li>
+</ul>
+</li>
+</ul>
+<p>Finally, I created a YAML configuration for each Thermacell device. For example, this one is for the backyard repellent:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># thermacell-backyard.yaml</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">substitutions</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">device_name</span>: <span style="color:#ae81ff">thermacell-backyard</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">friendly_name</span>: <span style="color:#e6db74">&#34;Backyard Thermacell&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Include common settings</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;&lt;</span>: !<span style="color:#ae81ff">include common/common.yaml</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Include common thermacell settings</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;&lt;</span>: !<span style="color:#ae81ff">include common/thermacell.yaml</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">esphome</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">${device_name}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">esp32</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">board</span>: <span style="color:#ae81ff">seeed_xiao_esp32c3</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">framework</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">arduino</span>
+</span></span></code></pre></div><p>I created separate YAML files for each device—like <code>thermacell-backyard.yaml</code> for the backyard unit and <code>thermacell-deck.yaml</code> for the deck repellent.</p>
+<p>Now, it was time for the moment of truth: running the YAML files for each device.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ae81ff">$ esphome run thermacell-backyard.yaml</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">$ esphome run thermacell-deck.yaml</span>
+</span></span></code></pre></div><p>The output reports the state of each Thermacell device every few seconds:</p>
+<p><img loading="lazy" src="images/esphome_run_output.png" alt="esphome run output.png"  />
+</p>
+<h2 id="final-result">Final Result<a hidden class="anchor" aria-hidden="true" href="#final-result">#</a></h2>
+<p>I can now control and monitor the logs of my Thermacell devices directly from the browser:</p>
+<p><img loading="lazy" src="images/esphome_server.png" alt="esphome server.png"  />
+</p>
+<p>The best part is that my devices magically show up on Home Assistant:</p>
+<p><img loading="lazy" src="images/home_assistant.png" alt="home assistant.png"  />
+</p>
+<p>And by extension, they also magically show up on my phone:</p>
+<p><img loading="lazy" src="images/phone_control.png" alt="phone control.png"  />
+</p>
+<p>I can now control my Thermacells just as easily as I control the lights in the basement!</p>
+<p><img loading="lazy" src="images/results.png" alt="results.png"  />
+</p>
+<p>How cool is that?</p>
+<h3 id="the-end">The End<a hidden class="anchor" aria-hidden="true" href="#the-end">#</a></h3>
+<p>Finally, I can enjoy my mosquito-free backyard.</p>
+<p><img loading="lazy" src="images/mosquito-free.png" alt="mosquito-free.png"  />
+</p>
+<h2 id="future-improvements">Future Improvements<a hidden class="anchor" aria-hidden="true" href="#future-improvements">#</a></h2>
+<p>Although this system works great, there is still room for improvement:</p>
+<ul>
+<li><strong>💡Better Fluid Tracking:</strong> Implement a more accurate method to monitor repellent fluid levels, possibly by integrating sensors that can detect fluid depletion in real-time.</li>
+<li><strong>💡Outdoor Automation:</strong> Use motion detection or camera-based sensors to automatically activate the Thermacell when someone steps outside.</li>
+<li><strong>💡Battery Optimization:</strong> Improve battery efficiency by leveraging deep sleep modes or solar charging, ensuring the Thermacells can run for longer periods without frequent recharging.</li>
+<li><strong>💡Safety Measures:</strong> Add safety features such as temperature monitoring to prevent overheating, or maybe use fire-resistant casings for protection.</li>
+<li><strong>💡Additional Sensors:</strong> Add extra sensors like temperature, humidity, and motion detectors to create a more intelligent environment and allow for smarter automations.</li>
+<li><strong>💡LED Status Indicators:</strong> Add fancy LED lighting to signal device status (e.g., on/off, low fluid) or just add some aesthetic flair to the setup.</li>
+</ul>
+<h2 id="lessons-learned">Lessons Learned<a hidden class="anchor" aria-hidden="true" href="#lessons-learned">#</a></h2>
+<p>Here are some of the key lessons I took away from this project:</p>
+<ul>
+<li><strong>🎓The Power of ChatGPT:</strong> I relied heavily on ChatGPT at every stage of this project, from debugging code to identifying hardware components. It’s an awesome learning partner!</li>
+</ul>
+<p><img loading="lazy" src="images/chatgpt.png" alt="chatgpt.png"  />
+</p>
+<ul>
+<li><strong>🎓Stepping Out of My Comfort Zone:</strong> Coming from a software background, diving into hardware was a big challenge.</li>
+<li><strong>🎓Leverage Open-Source Libraries:</strong> One big takeaway was to always look for existing open-source libraries or solutions before diving into messy, low-level code. Projects like ESPHome made my life significantly easier.</li>
+<li><strong>🎓Iterate and Improve:</strong> Throughout the project, I made several mistakes—from botched soldering jobs to initial code missteps—but each misstep was an opportunity to iterate, learn, and improve the solution.</li>
+<li><strong>🎓Hardware Hacking Is Accessible:</strong> You don’t need to be an electrical engineer to start hacking hardware. With platforms like ESPHome and Home Assistant, even complex home automation projects can be accessible to beginners with a little curiosity and effort.</li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/diy/">DIY</a></li>
+      <li><a href="http://localhost:1313/tags/smart-home/">Smart Home</a></li>
+      <li><a href="http://localhost:1313/tags/tech/">Tech</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2024 <a href="http://localhost:1313/">Luke Does Stuff</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+baseURL: https://lukedoesstuff.com/
+languageCode: en-us
+title: Luke Does Stuff
+theme: ["PaperMod"]
+
+params:
+  homeInfoParams:
+    Title: A generic hugo website for me to post stuff
+    Content: ... where "me" is Luke Demi.
