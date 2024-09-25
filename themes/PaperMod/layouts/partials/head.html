@@ -149,6 +149,7 @@
 {{- partial "extend_head.html" . -}}
 
 {{- template "_internal/google_analytics.html" . }}
+{{- template "_internal/google_analytics_async.html" . }}
 {{- /* Misc */}}
 {{- if hugo.IsProduction | or (eq site.Params.env "production") }}
 {{- template "partials/templates/opengraph.html" . }}

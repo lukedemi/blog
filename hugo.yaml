@@ -2,6 +2,7 @@ baseURL: https://lukedoesstuff.com/
 languageCode: en-us
 title: Luke Does Things
 theme: ["PaperMod"]
+googleAnalytics: "G-3LSVVSVLZH"
 
 params:
   env: production
